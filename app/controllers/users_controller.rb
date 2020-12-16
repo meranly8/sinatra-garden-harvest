@@ -4,6 +4,15 @@ class UsersController < ApplicationController
         erb :"users/signup"
     end
 
+    post '/users' do
+        if params[:user][:username] != "" && params[:user][:email] != "" && params[:user][:password]  != "" 
+            @user = User.create(params[:user])
+            redirect '/crops'
+        else
+            redirect '/users/signup'
+        end
+    end
+    
     get '/users/login' do
         erb :"users/login"
     end
