@@ -12,4 +12,8 @@ class CropsController < ApplicationController
         @crop = Crop.find_by(id: params[:id])
         erb :"crops/show"
     end
+
+    post '/crops' do
+        binding.pry
+    end
 end
