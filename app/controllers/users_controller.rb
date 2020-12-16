@@ -14,6 +14,10 @@ class UsersController < ApplicationController
         if @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect "/crops"
+
+        #else
+            #tell user the login error
+            #redirect back to 'user/login'
         end
     end
 
