@@ -12,11 +12,6 @@ class CropsController < ApplicationController
         end
     end
 
-    get '/crops/:id' do
-        @crop = Crop.find_by(id: params[:id])
-        erb :"crops/show"
-    end
-
     post '/crops' do
         if params[:crop].values.any? {|value| value.blank?}
             redirect '/crops/new'
@@ -25,4 +20,10 @@ class CropsController < ApplicationController
             redirect "/crops/#{@crop.id}"
         end
     end
+    
+    get '/crops/:id' do
+        @crop = Crop.find_by(id: params[:id])
+        erb :"crops/show"
+    end
+
 end
