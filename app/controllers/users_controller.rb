@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
     get '/users/logout' do
         session.clear
-        redirect '/users/login'
+        redirect '/'
     end
 
     get '/users/:id' do
