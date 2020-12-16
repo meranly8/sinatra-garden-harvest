@@ -20,10 +20,19 @@ class CropsController < ApplicationController
             redirect "/crops/#{@crop.id}"
         end
     end
-    
+
     get '/crops/:id' do
         @crop = Crop.find_by(id: params[:id])
         erb :"crops/show"
+    end
+
+    get '/crops/:id/edit' do
+        @crop = Crop.find_by(id: params[:id])
+        if @crop.user.id == session[:user_id]
+            erb :"crops/edit"
+        else
+            redirect "/crops/#{@crop.id}"
+        end 
     end
 
 end
