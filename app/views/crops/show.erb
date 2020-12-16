@@ -1,1 +1,7 @@
-<h1>Crop Info!</h1>
+<h1><%= @crop.name %></h1>
+<h2>Planted by: <%= @crop.user.username %></h2>
+<p>Amount Harvested: <%= @crop.quantity %></p>
+<p>Year Harvested: <%= @crop.year %></p>
+<p>Season: <%= @crop.season %></p>
+<br>
+<a href="/crops">Back to Crops</a>
