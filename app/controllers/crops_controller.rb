@@ -5,7 +5,11 @@ class CropsController < ApplicationController
     end
 
     get '/crops/new' do
-        erb :"crops/new"
+        if logged_in?
+            erb :"crops/new"
+        else
+            redirect '/users/login'
+        end
     end
 
     get '/crops/:id' do
