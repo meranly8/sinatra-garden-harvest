@@ -4,6 +4,10 @@ class CropsController < ApplicationController
         erb :"crops/index"
     end
 
+    get '/crops/new' do
+        erb :"crops/new"
+    end
+
     get '/crops/:id' do
         @crop = Crop.find_by(id: params[:id])
         erb :"crops/show"
