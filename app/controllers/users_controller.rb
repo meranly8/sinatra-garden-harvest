@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
     get '/users/:id' do
         @user = User.find_by(id: params[:id])
+        @user_crops = @user.crops
         erb :"users/show"
     end
 
