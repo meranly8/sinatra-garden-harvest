@@ -2,6 +2,6 @@
 
 <ul>
     <% @crops.each do |crop| %>
-        <li><%= crop.name %></li><br>
+        <li><a href="/crops/<%= crop.id %>"><%= crop.name %></a></li><br>
     <% end %>
 </ul>
