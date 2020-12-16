@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     post '/users' do
         if params[:user][:username] != "" && params[:user][:email] != "" && params[:user][:password]  != "" 
             @user = User.create(params[:user])
-            redirect '/crops'
+            session[:user_id] = @user.id
+            redirect "/users/#{@user.id}"
         else
             redirect '/users/signup'
         end
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
         
         if @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect "/crops"
+            redirect "/users/#{@user.id}"
 
         #else
             #tell user the login error
@@ -30,13 +31,14 @@ class UsersController < ApplicationController
         end
     end
 
+    get '/users/logout' do
+        session.clear
+        redirect '/users/login'
+    end
+
     get '/users/:id' do
         @user = User.find_by(id: params[:id])
         erb :"users/show"
     end
 
-    get '/users/logout' do
-        session.clear
-        redirect '/users/login'
-    end
 end 
