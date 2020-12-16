@@ -1,8 +1,14 @@
 <h1><%= @user.username %></h1>
 <h3><%= @user.email %></h3>
-
+<br>
 <ul>
     <% @user_crops.each do |crop| %>
         <li><%= crop.season %> <%= crop.year %> - <%= crop.name %></li>
     <% end %>
 </ul>
+<br>
+<br>
+<br>
+<form action="/crops/new" method="get">
+    <input type="submit" value="New Crop">
+</form>
