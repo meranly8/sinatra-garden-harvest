@@ -13,6 +13,11 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
+  <header>
+    <% if logged_in? %>
+      <small>Hi, <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>!</small>
+  <% end %>
+  </header>
   <body>
     <div class="wrapper">
 
