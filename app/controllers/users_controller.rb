@@ -15,7 +15,11 @@ class UsersController < ApplicationController
     end
     
     get '/users/login' do
-        erb :"users/login"
+        if !logged_in?
+            erb :"users/login"
+        else
+            redirect "/users/#{session[:user_id]}"
+        end
     end
 
     post '/users/login' do
