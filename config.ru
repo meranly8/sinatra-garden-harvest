@@ -8,3 +8,4 @@ use Rack::MethodOverride
 
 run ApplicationController
 use CropsController
+use UsersController
