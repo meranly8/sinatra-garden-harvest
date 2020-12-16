@@ -30,4 +30,8 @@ class UsersController < ApplicationController
         end
     end
 
-end
+    get '/users/:id' do
+
+    end
+
+end 

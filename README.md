@@ -21,7 +21,7 @@ CRUD Actions
 
 ## UsersController
 - GET signup
-- POST signup
+- POST users
 - GET login
 - POST login
 - GET logout
@@ -37,3 +37,4 @@ Only for GET actions
 ## Users
 - signup
 - login
+- show
