@@ -6,7 +6,7 @@
 <% end %>
 <ul>
     <% @user_crops.each do |crop| %>
-        <li><%= crop.season %> <%= crop.year %> - <%= crop.name %></li>
+        <li><%= crop.season %> <%= crop.year %> - <a href="/crops/<%= crop.id %>"><%= crop.name %></a> (<%= crop.quantity %>)</li>
     <% end %>
 </ul>
 <br>
