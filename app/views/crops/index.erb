@@ -1,1 +1,7 @@
 <h1>Crops!</h1>
+
+<ul>
+    <% @crops.each do |crop| %>
+        <li><%= crop.name %></li><br>
+    <% end %>
+</ul>
