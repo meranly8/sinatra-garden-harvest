@@ -18,6 +18,11 @@ class CropsController < ApplicationController
     end
 
     post '/crops' do
-        binding.pry
+        if params[:crop].values.any? {|value| value.blank?}
+            redirect '/crops/new'
+        else
+            @crop = Crop.create(params[:crop])
+            redirect "/crops/#{@crop.id}"
+        end
     end
 end
