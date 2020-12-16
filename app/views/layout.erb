@@ -13,11 +13,13 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
-  <header>
+  <nav>
     <% if logged_in? %>
       <small>Hi, <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>!</small>
+      <small><a href='/crops'>All Crops</a></small>
+      <small><a href='/crops/new'>New Crop</a></small>
   <% end %>
-  </header>
+  </nav>
   <body>
     <div class="wrapper">
 
@@ -25,7 +27,6 @@
 
       <footer class="branding">
         <% if logged_in? %>
-          <small><a href='/crops'>Crops</a></small>
           <small><a href='/users/logout'>Logout</a></small>
         <% else %>
           <small><a href='/users/login'>Login</a></small>
