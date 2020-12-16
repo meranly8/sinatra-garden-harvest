@@ -7,13 +7,14 @@
     <label for="crop_text">Year Harvested: </label><br>
         <input type="text" name="crop[year]" id="crop_year"><br><br>
     <label for="crop_season">Season: </label><br>
-        <select name="season" id="crop_season">
+        <select name="crop[season]" id="crop_season">
             <option disabled selected value></option>
             <option value="Winter" >Winter</option>
             <option value="Spring" >Spring</option>
             <option value="Summer" >Summer</option>
             <option value="Fall" >Fall</option>
         </select>
+    <input type="hidden" name="crop[user_id]" value="<%= session[:user_id] %>">
     <br><br>
     <br>
     <input type="submit" value="Create Crop">
