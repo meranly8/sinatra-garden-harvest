@@ -1,5 +1,5 @@
 <h1><%= @crop.name %></h1>
-<h2>Planted by: <%= @crop.user.username %></h2>
+<h2>Planted by: <a href="/users/<%= @crop.user.id %>"><%= @crop.user.username %></a></h2>
 <p>Amount Harvested: <%= @crop.quantity %></p>
 <p>Year Harvested: <%= @crop.year %></p>
 <p>Season: <%= @crop.season %></p>
