@@ -12,6 +12,8 @@
 <br>
 <br>
 <br>
-<form action="/crops/new" method="get">
-    <input type="submit" value="New Crop">
-</form>
+<% if current_user.id == @user.id %>
+    <form action="/crops/new" method="get">
+        <input type="submit" value="New Crop">
+    </form>
+<% end %>
