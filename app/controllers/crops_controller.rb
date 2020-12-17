@@ -62,7 +62,7 @@ class CropsController < ApplicationController
     delete '/crops/:id' do
         set_crop
         if authorized_for?(@crop)
-            @crop.delete
+            @crop.destroy
             redirect "/users/#{current_user.id}"
         else
             redirect "/users/#{current_user.id}"
