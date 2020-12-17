@@ -17,7 +17,7 @@ class CropsController < ApplicationController
             redirect '/crops/new'
         else
             @crop = Crop.create(params[:crop])
-            redirect "/crops/#{@crop.id}"
+            redirect "/users/#{@crop.user.id}"
         end
     end
 
@@ -51,9 +51,9 @@ class CropsController < ApplicationController
         @crop = Crop.find_by(id: params[:id])
         if @crop.user.id == current_user.id
             @crop.delete
-            redirect "/crops/#{@crop.id}"
+            redirect "/users/#{current_user.id}"
         else
-            redirect "/crops/#{@crop.id}"
+            redirect "/users/#{current_user.id}"
         end 
     end
 

@@ -4,12 +4,14 @@
 <p>Year Harvested: <%= @crop.year %></p>
 <p>Season: <%= @crop.season %></p>
 <br>
-<form action="/crops/<%= @crop.id %>/edit" method="get">
-    <input type="submit" value="Edit Crop">
-</form><br>
-<form action="/crops/<%= @crop.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Crop">
-</form><br>
 
+<% if @crop.user.id == current_user.id %>
+    <form action="/crops/<%= @crop.id %>/edit" method="get">
+        <input type="submit" value="Edit Crop">
+    </form><br>
+    <form action="/crops/<%= @crop.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Crop">
+    </form><br>
+<% end %>
 
