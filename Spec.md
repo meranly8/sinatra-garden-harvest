@@ -3,10 +3,13 @@ Specs:
 - [x] Use ActiveRecord for storing information in a database
 - [x] Include more than one model class (e.g. User, Post, Category)
     User, Crop
+    
 - [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
     User has_many :crops
+    
 - [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
     Crop belongs_to :user
+
 - [ ] Include user accounts with unique login attribute (username or email)
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
     ~~get '/crops'~~
@@ -16,9 +19,15 @@ Specs:
     ~~get '/crops/:id/edit'~~
     ~~patch '/crops/:id'~~
     ~~delete '/crops/:id'~~
+
 - [x] Ensure that users can't modify content created by other users
+    #logged_in? logic on edit and delete buttons and #authorized_for? logic implemented in update and delete actions
+
 - [ ] Include user input validations
+    Prohibited from creating or updating user and crop entries with blank values
+
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
+
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
