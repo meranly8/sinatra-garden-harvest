@@ -5,8 +5,8 @@
 <p>Season: <%= @crop.season %></p>
 <br>
 
-<% created = @crop.created_at.strftime("%d %B %Y  %r %Z") %>
-<% updated = @crop.updated_at.strftime("%d %B %Y  %r %Z") %>
+<% created = @crop.created_at.strftime("%-m/%d/%Y  %r %Z") %>
+<% updated = @crop.updated_at.strftime("%-m/%d/%Y  %r %Z") %>
 
 <small>Created: <%= created %></small><br>
 
