@@ -28,10 +28,10 @@ class CropsController < ApplicationController
 
     get '/crops/:id/edit' do
         set_crop
-        if @crop.user.id == current_user.id
+        if @crop.user == current_user
             erb :"crops/edit"
         else
-            redirect "/crops/#{@crop.id}"
+            redirect "/crops/#{current_user.id}"
         end 
     end
 
@@ -39,7 +39,7 @@ class CropsController < ApplicationController
         set_crop
         
         if params[:crop].values.any? {|value| value.blank?}
-            redirect "/crops/#{@crop.id}/edit"
+            redirect "/crops/#{current_user.id}/edit"
         else
             @crop.update(params[:crop])
             @crop.save
