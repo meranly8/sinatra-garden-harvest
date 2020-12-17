@@ -5,6 +5,16 @@
 <p>Season: <%= @crop.season %></p>
 <br>
 
+<% created = @crop.created_at.strftime("%d %B %Y  %r %Z") %>
+<% updated = @crop.updated_at.strftime("%d %B %Y  %r %Z") %>
+
+<small>Created: <%= created %></small><br>
+
+<% if created != updated %>
+    <small>Updated: <%= updated %></small>
+<% end %><br>
+<br>
+<br>
 <% if @crop.user.id == current_user.id %>
     <form action="/crops/<%= @crop.id %>/edit" method="get">
         <input type="submit" value="Edit Crop">
