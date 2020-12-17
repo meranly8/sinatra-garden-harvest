@@ -8,7 +8,7 @@ class CropsController < ApplicationController
         if logged_in?
             erb :"crops/new"
         else
-            redirect '/users/login'
+            redirect '/'
         end
     end
 
@@ -17,7 +17,7 @@ class CropsController < ApplicationController
             redirect '/crops/new'
         else
             @crop = Crop.create(params[:crop])
-            redirect "/users/#{@crop.user.id}"
+            redirect "/users/#{current_user.id}"
         end
     end
 
@@ -28,22 +28,34 @@ class CropsController < ApplicationController
 
     get '/crops/:id/edit' do
         set_crop
-        if @crop.user == current_user
-            erb :"crops/edit"
+        if logged_in?
+            if @crop.user == current_user
+                erb :"crops/edit"
+            else
+                redirect "/crops/#{@crop.id}"
+            end 
         else
-            redirect "/crops/#{current_user.id}"
-        end 
+            redirect '/'
+        end
     end
 
     patch '/crops/:id' do
         set_crop
         
-        if params[:crop].values.any? {|value| value.blank?}
-            redirect "/crops/#{current_user.id}/edit"
+        if logged_in?
+            if @crop.user == current_user
+                if params[:crop].values.any? {|value| value.blank?}
+                    redirect "/crops/#{current_user.id}/edit"
+                else
+                    @crop.update(params[:crop])
+                    @crop.save
+                    redirect "/crops/#{@crop.id}"
+                end
+            else
+                redirect "/users/#{current_user.id}"
+            end
         else
-            @crop.update(params[:crop])
-            @crop.save
-            redirect "/crops/#{@crop.id}"
+            redirect "/"
         end
     end
 
