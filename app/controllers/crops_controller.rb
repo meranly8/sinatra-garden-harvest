@@ -28,7 +28,7 @@ class CropsController < ApplicationController
 
     get '/crops/:id/edit' do
         @crop = Crop.find_by(id: params[:id])
-        if @crop.user.id == session[:user_id]
+        if @crop.user.id == current_user.id
             erb :"crops/edit"
         else
             redirect "/crops/#{@crop.id}"
@@ -39,12 +39,22 @@ class CropsController < ApplicationController
         @crop = Crop.find_by(id: params[:id])
         
         if params[:crop].values.any? {|value| value.blank?}
-            redirect '/crops/#{@crop.id}/edit'
+            redirect "/crops/#{@crop.id}/edit"
         else
             @crop.update(params[:crop])
             @crop.save
             redirect "/crops/#{@crop.id}"
         end
+    end
+
+    delete '/crops/:id' do
+        @crop = Crop.find_by(id: params[:id])
+        if @crop.user.id == current_user.id
+            @crop.delete
+            redirect "/crops/#{@crop.id}"
+        else
+            redirect "/crops/#{@crop.id}"
+        end 
     end
 
 end
