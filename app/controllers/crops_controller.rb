@@ -29,7 +29,7 @@ class CropsController < ApplicationController
     get '/crops/:id/edit' do
         set_crop
         if logged_in?
-            if @crop.user == current_user
+            if authorized_for?(@crop)
                 erb :"crops/edit"
             else
                 redirect "/users/#{current_user.id}"
