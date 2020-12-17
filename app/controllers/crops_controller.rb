@@ -32,7 +32,7 @@ class CropsController < ApplicationController
             if @crop.user == current_user
                 erb :"crops/edit"
             else
-                redirect "/crops/#{@crop.id}"
+                redirect "/users/#{current_user.id}"
             end 
         else
             redirect '/'
