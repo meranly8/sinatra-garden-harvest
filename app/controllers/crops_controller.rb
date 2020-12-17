@@ -35,4 +35,16 @@ class CropsController < ApplicationController
         end 
     end
 
+    patch '/crops/:id' do
+        @crop = Crop.find_by(id: params[:id])
+        
+        if params[:crop].values.any? {|value| value.blank?}
+            redirect '/crops/#{@crop.id}/edit'
+        else
+            @crop.update(params[:crop])
+            @crop.save
+            redirect "/crops/#{@crop.id}"
+        end
+    end
+
 end
