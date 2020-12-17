@@ -15,7 +15,7 @@
 <% end %><br>
 <br>
 <br>
-<% if @crop.user.id == current_user.id %>
+<% if authorized_for?(@crop) %>
     <form action="/crops/<%= @crop.id %>/edit" method="get">
         <input type="submit" value="Edit Crop">
     </form><br>

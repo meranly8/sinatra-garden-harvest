@@ -43,7 +43,7 @@ class CropsController < ApplicationController
         set_crop
         
         if logged_in?
-            if @crop.user == current_user
+            if authorized_for?(@crop)
                 if params[:crop].values.any? {|value| value.blank?}
                     redirect "/crops/#{current_user.id}/edit"
                 else
@@ -61,7 +61,7 @@ class CropsController < ApplicationController
 
     delete '/crops/:id' do
         set_crop
-        if @crop.user.id == current_user.id
+        if authorized_for?(@crop)
             @crop.delete
             redirect "/users/#{current_user.id}"
         else
