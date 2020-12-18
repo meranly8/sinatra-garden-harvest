@@ -1,3 +1,26 @@
+# ABOUT
+
+# INSTALLATION
+In terminal, clone the code.
+```ruby
+git clone git@github.com:meranly8/sinatra-garden-harvest.git
+```
+
+# USAGE
+
+# SUPPORT
+If an issue arises, please open an issue and assign it to meranly8
+
+[Open New Issue for sinatra-garden-harvest](https://github.com/meranly8/sinatra-garden-harvest/issues/new)
+
+# CONTRIBUTION
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+# LICENSE
+[MIT License](https://choosealicense.com/licenses/mit/)
+Copyright (c) [2020] [Michelle Ranly]
+
+
 Building app to track user's crops harvested in their gardens
 users should be able to signup, login, logout, create crops, edit and delete only crops created by user, view all crops
 # DB & MODELS
