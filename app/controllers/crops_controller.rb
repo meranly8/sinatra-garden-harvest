@@ -11,8 +11,7 @@ class CropsController < ApplicationController
 
     post '/crops' do
         redirect_if_not_logged_in
-        crop = Crop.new(params[:crop])
-        crop.user = current_user
+        crop = current_user.crops.build(params[:crop])
         if crop.save
             redirect "/users/#{current_user.id}"
         else
