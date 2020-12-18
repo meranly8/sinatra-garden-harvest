@@ -30,6 +30,12 @@ class ApplicationController < Sinatra::Base
     def authorized_for?(crop)
       crop.user == current_user
     end
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect '/'
+      end
+    end
   end
 
 end
