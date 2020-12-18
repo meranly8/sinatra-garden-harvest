@@ -2,7 +2,7 @@ Specs:
 - [x] Use Sinatra to build the app
 - [x] Use ActiveRecord for storing information in a database
 - [x] Include more than one model class (e.g. User, Post, Category)
-* User, Crop* 
+* User, Crop
 
 - [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
 * User has_many :crops
