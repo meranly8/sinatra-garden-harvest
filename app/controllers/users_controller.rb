@@ -10,7 +10,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect "/users/#{@user.id}"
         else
-            @errors = user.errors.full_messages.to_sentence   
+            @errors = user.errors.full_messages.to_sentence
             erb :'users/signup'
         end
     end

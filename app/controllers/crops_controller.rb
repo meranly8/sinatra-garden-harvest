@@ -11,11 +11,12 @@ class CropsController < ApplicationController
 
     post '/crops' do
         redirect_if_not_logged_in
-        if params[:crop].values.any? {|value| value.blank?}
-            redirect '/crops/new'
-        else
-            @crop = Crop.create(params[:crop])
+        crop = Crop.new(params[:crop])
+        if crop.save
             redirect "/users/#{current_user.id}"
+        else
+            @errors = crop.errors.full_messages.to_sentence
+            erb :"crops/new"
         end
     end
 
