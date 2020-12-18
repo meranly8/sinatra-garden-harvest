@@ -15,7 +15,6 @@
             <input type="radio" name="crop[season]" id="crop_season" value="<%= s %>"
             <%= 'checked' if @crop.season == s %>> <%= s %><br>
         <% end %>
-    <input type="hidden" name="crop[user_id]" value="<%= current_user.id %>">
     <br><br>
     <br>
     <input type="submit" value="Update Crop">
