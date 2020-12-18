@@ -10,7 +10,10 @@ Specs:
 - [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
 * Crop belongs_to :user
 
-- [ ] Include user accounts with unique login attribute (username or email)
+- [x] Include user accounts with unique login attribute (username or email)
+* validates :username, uniqueness: true
+* validates :email, uniqueness: true
+
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 * ~~get '/crops'~~
 * ~~get '/crops/new'~~
@@ -26,7 +29,7 @@ Specs:
 - [x] Include user input validations
 * Prohibited from creating or updating user and crop entries with blank values
 
-- [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
