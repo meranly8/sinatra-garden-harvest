@@ -39,13 +39,13 @@ class CropsController < ApplicationController
     patch '/crops/:id' do
         redirect_if_not_logged_in
         set_crop
+        @crop.assign_attributes(params[:crop])
         if authorized_for?(@crop)
-            if params[:crop].values.any? {|value| value.blank?}
-                @errors = crop.errors.full_messages.to_sentence
-                erb :"crops/#{current_user.id}/edit"
-            else
-                @crop.update(params[:crop])
+            if @crop.save
                 redirect "/crops/#{@crop.id}"
+            else
+                @errors = @crop.errors.full_messages.to_sentence
+                erb :"crops/edit"
             end
         else
             redirect "/users/#{current_user.id}"
