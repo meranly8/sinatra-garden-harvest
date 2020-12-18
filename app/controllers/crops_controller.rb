@@ -12,6 +12,7 @@ class CropsController < ApplicationController
     post '/crops' do
         redirect_if_not_logged_in
         crop = Crop.new(params[:crop])
+        crop.user = current_user
         if crop.save
             redirect "/users/#{current_user.id}"
         else
@@ -21,14 +22,14 @@ class CropsController < ApplicationController
     end
 
     get '/crops/:id' do
-        redirect_if_not_logged_in
         set_crop
+        redirect_if_not_logged_in
         erb :"crops/show"
     end
 
     get '/crops/:id/edit' do
-        redirect_if_not_logged_in
         set_crop
+        redirect_if_not_logged_in
         if authorized_for?(@crop)
             erb :"crops/edit"
         else
@@ -37,8 +38,8 @@ class CropsController < ApplicationController
     end
 
     patch '/crops/:id' do
-        redirect_if_not_logged_in
         set_crop
+        redirect_if_not_logged_in
         @crop.assign_attributes(params[:crop])
         if authorized_for?(@crop)
             if @crop.save
@@ -54,6 +55,7 @@ class CropsController < ApplicationController
 
     delete '/crops/:id' do
         set_crop
+        redirect_if_not_logged_in
         if authorized_for?(@crop)
             @crop.destroy
             redirect "/users/#{current_user.id}"
