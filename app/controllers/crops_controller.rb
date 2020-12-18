@@ -41,10 +41,10 @@ class CropsController < ApplicationController
         set_crop
         if authorized_for?(@crop)
             if params[:crop].values.any? {|value| value.blank?}
-                redirect "/crops/#{current_user.id}/edit"
+                @errors = crop.errors.full_messages.to_sentence
+                erb :"crops/#{current_user.id}/edit"
             else
                 @crop.update(params[:crop])
-                @crop.save
                 redirect "/crops/#{@crop.id}"
             end
         else
