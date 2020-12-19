@@ -12,6 +12,10 @@ git clone git@github.com:meranly8/sinatra-garden-harvest.git
 ```
 
 # USAGE
+Run the web application by calling rackup in the terminal and navigate to [localhost:9292](localhost:9292).
+```ruby
+rackup config.ru
+```
 
 # SUPPORT
 If an issue arises, please open an issue and assign it to meranly8
