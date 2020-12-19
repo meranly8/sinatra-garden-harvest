@@ -1,4 +1,9 @@
 # ABOUT
+This Sinatra web application allows users to sign up, login, and logout to track crops harvested in their gardens. Users can create, update, and edit their crops and view the crops of other users.
+
+![alt text][logo]
+
+[logo]: https://i.imgur.com/b8lUeeV.jpeg "Garden haul"
 
 # INSTALLATION
 In terminal, clone the code.
