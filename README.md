@@ -7,7 +7,7 @@ This Sinatra web application allows users to sign up, login, and logout to track
 [logo]: https://i.imgur.com/b8lUeeV.jpeg "Garden haul"
 
 ## Installation
-In terminal, clone the code.
+In terminal, in appropriate directory, clone the code.
 ```ruby
 git clone git@github.com:meranly8/sinatra-garden-harvest.git
 ```
