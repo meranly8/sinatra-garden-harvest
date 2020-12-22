@@ -17,22 +17,19 @@ class UsersController < ApplicationController
     
     get '/users/login' do
         if !logged_in?
-            erb :"users/login"
+            erb :'users/login'
         else
             redirect "/users/#{session[:user_id]}"
         end
     end
 
     post '/users/login' do
-        
-        @user = User.find_by(email: params[:user][:email])
-        
-        if @user && @user.authenticate(params[:user][:password])
-            session[:user_id] = @user.id
-            redirect "/users/#{@user.id}"
-
+        user = User.find_by(email: params[:user][:email])
+    
+        if user && user.authenticate(params[:user][:password])
+            session[:user_id] = user.id
+            redirect "/users/#{user.id}"
         else
-            
             redirect '/users/login'
         end
     end
@@ -43,8 +40,8 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
+        redirect_if_not_logged_in
         @user = User.find_by(id: params[:id])
-        @user_crops = @user.crops
         erb :"users/show"
     end
 
