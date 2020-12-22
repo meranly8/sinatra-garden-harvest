@@ -1,11 +1,11 @@
 <h1><%= @user.username %></h1>
 <h3><%= @user.email %></h3>
 <br>
-<% if @user_crops.size == 0 %>
+<% if @user.crops.size == 0 %>
     <small><p>No harvested crops yet!</p></small>
 <% end %>
 <ul>
-    <% @user_crops.each do |crop| %>
+    <% @user.crops.each do |crop| %>
         <li><%= crop.season %> <%= crop.year %> - <a href="/crops/<%= crop.id %>"><%= crop.name %></a> (<%= crop.quantity %>)</li>
     <% end %>
 </ul>
