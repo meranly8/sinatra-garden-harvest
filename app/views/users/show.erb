@@ -12,7 +12,7 @@
 <br>
 <br>
 <br>
-<% if current_user.id == @user.id %>
+<% if current_user == @user %>
     <form action="/crops/new" method="get">
         <input type="submit" value="New Crop">
     </form>
