@@ -6,9 +6,9 @@
     <label for="crop_name">Name: </label><br>
         <input type="text" name="crop[name]" id="crop_name" value="<%= @crop.name %>"><br><br>
     <label for="crop_quantity">Quantity Harvested: </label><br>
-        <input type="text" name="crop[quantity]" id="crop_quantity" value="<%= @crop.quantity %>" min="1"><br><br>
+        <input type="number" name="crop[quantity]" id="crop_quantity" value="<%= @crop.quantity %>" min="1"><br><br>
     <label for="crop_text">Year Harvested: </label><br>
-        <input type="text" name="crop[year]" id="crop_year" value="<%= @crop.year %>"><br><br>
+        <input type="number" name="crop[year]" id="crop_year" value="<%= @crop.year %>"><br><br>
     <label for="crop_season">Season: </label><br>
         <% seasons = ["Winter", "Spring", "Summer", "Fall"] %>
         <% seasons.each do |s| %>
