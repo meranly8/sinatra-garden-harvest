@@ -12,8 +12,8 @@
     <label for="crop_season">Season Harvested: </label><br>
         <% seasons = ["Winter", "Spring", "Summer", "Fall"] %>
         <% seasons.each do |season| %>
-            <input type="radio" name="crop[season]" id="crop_season" value="<%= season %>">
-            <%= 'checked' if @crop.season == season %><%= season %><br>
+            <input type="radio" name="crop[season]" id="crop_season" value="<%= season %>"
+            <%= 'checked' if @crop.season == season %>> <%= season %><br>
         <% end %>
     <br><br>
     <br>
