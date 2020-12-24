@@ -7,13 +7,13 @@
         <input type="text" name="crop[name]" id="crop_name" value="<%= @crop.name %>"><br><br>
     <label for="crop_quantity">Quantity Harvested: </label><br>
         <input type="number" name="crop[quantity]" id="crop_quantity" value="<%= @crop.quantity %>" min="1"><br><br>
-    <label for="crop_text">Year Harvested: </label><br>
+    <label for="crop_year">Year Harvested: </label><br>
         <input type="number" name="crop[year]" id="crop_year" value="<%= @crop.year %>"><br><br>
-    <label for="crop_season">Season: </label><br>
+    <label for="crop_season">Season Harvested: </label><br>
         <% seasons = ["Winter", "Spring", "Summer", "Fall"] %>
-        <% seasons.each do |s| %>
-            <input type="radio" name="crop[season]" id="crop_season" value="<%= s %>"
-            <%= 'checked' if @crop.season == s %>> <%= s %><br>
+        <% seasons.each do |season| %>
+            <input type="radio" name="crop[season]" id="crop_season" value="<%= season %>">
+            <%= 'checked' if @crop.season == season %><%= season %><br>
         <% end %>
     <br><br>
     <br>
