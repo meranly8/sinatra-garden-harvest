@@ -63,7 +63,7 @@ class CropsController < ApplicationController
         end 
     end
 
-    private #only to be used in this class
+    private
 
     def set_crop
         @crop = Crop.find_by(id: params[:id])
