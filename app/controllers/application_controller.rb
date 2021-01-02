@@ -23,8 +23,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id]) 
-      # memoization; less hits to db when saved as instance variable
+      @current_user ||= User.find_by(id: session[:user_id])
     end
 
     def authorized_for?(crop)
